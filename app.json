@@ -11,13 +11,13 @@
       "resizeMode": "contain",
       "backgroundColor": "#05060a"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
+    
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.xenon.iptv"
     },
+    
     "android": {
       "jsEngine": "jsc",
       "adaptiveIcon": {
@@ -25,19 +25,28 @@
         "backgroundColor": "#05060a"
       },
       "package": "com.xenon.iptv",
-      "permissions": [
-        "INTERNET",
-        "ACCESS_NETWORK_STATE"
-      ]
+      "permissions": ["INTERNET", "ACCESS_NETWORK_STATE"]
     },
+    
     "web": {
       "favicon": "./assets/favicon.png"
     },
+    
     "plugins": [
       "expo-video",
       "expo-asset",
-      "expo-build-properties"
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "enableProguardInReleaseBuilds": false,
+            "extraProguardRules": "-keep public class androidx.work.** { *; }\n-keep public class androidx.startup.** { *; }"
+          }
+        }
+      ],
+      "./plugins/withWorkManager.js"
     ],
+    
     "extra": {
       "eas": {
         "projectId": "2333ab36-f35b-4c6d-8352-e5484e91beec"

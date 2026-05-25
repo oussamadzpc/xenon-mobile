@@ -1,12 +1,20 @@
-module.exports = function(api) {
-  api.cache(true);
-  return {
-    presets: ['babel-preset-expo'],
-    plugins: [
-      ['module-resolver', {
-        root: ['./src'],
-        alias: { '@': './src' },
-      }],
+export default {
+  name: 'xenon-mobile',
+  version: '1.0.0',
+  
+  // ⬇️ أضف هذا
+  android: {
+    package: 'com.anonymous.xenonmobile'
+  },
+  
+  plugins: [
+    [
+      'expo-build-properties',
+      {
+        android: {
+          enableProguardInReleaseBuilds: false,
+        },
+      },
     ],
-  };
+  ],
 };
