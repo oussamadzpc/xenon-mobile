@@ -35,7 +35,8 @@
     },
     "plugins": [
       "expo-video",
-      "expo-asset"
+      "expo-asset",
+      "expo-build-properties"
     ],
     "extra": {
       "eas": {
